@@ -1,0 +1,62 @@
+<head>
+     <link href='../static/style.css', rel='stylesheet'>
+     <link href='../static/user.css', rel='stylesheet'>
+</head>
+
+{% if name != session['account'] %}
+<p class="error">
+    Something went wrong, please go to
+    <a href={{ url_for('login') }}>Log In</a> /
+    <a href={{ url_for('index') }}>Sign Up</a>
+</p>
+
+{% else %}
+    <a href={{ url_for('logout') }} class="logout">LOG OUT</a>
+    <h1>Ivanov PCS-21</h1>
+    <p id="hello">Hello, {{name|title}}!</p>
+
+    <div class="wrapper">
+        {% for task in tasks %}
+        <div id={{ loop.index|string }} class="card">
+            <div class="card-img"></div>
+            <h2 class="card-heading">{{ task.title }}</h2>
+            <p class="card-status">{{ task.status }}</p>
+            <p class="card-details">{{ task.details }}</p>
+            <p class="card-start-date">Created: {{ task.created_on }}</p>
+            {% if task.deadline %}
+            <p class="card-deadline">Deadline: {{ task.deadline }}</p>
+            {% endif %}
+            <div class="card-ui">
+                <a href={{ "/status/" + loop.index|string }}>Change Status</a>
+                <a href="#" onclick=remove_task(event)>Remove</a>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+    <form method="POST">
+        <label>Title</label>
+        <input 
+            minlength="5" 
+            maxlength="20" 
+            name="title" 
+            placeholder="What to do" 
+            required>
+        <br/>
+        <label>Details</label>
+        <input 
+            name="details" 
+            placeholder="Type details">
+        <br/>
+        <label>Deadline</label>
+        <input 
+            type="date" 
+            name="deadline" 
+            placeholder="optional" >
+        <br/>
+        <input type="submit" value="Send">
+    </form>
+
+    <a id="form-toggler">ADD TASK</a>
+<script src="{{ url_for('static', filename="script.js") }}"></script>
+{% endif %}

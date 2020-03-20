@@ -1,0 +1,26 @@
+<head>
+    <link href='../static/style.css', rel='stylesheet'>
+    <link href='../static/login.css', rel='stylesheet'>
+</head>
+<h1>Ivanov PCS-21</h1>
+
+
+{% if error %}
+    <p class="error">
+        Sorry, email or password are incorrect.<br/>
+        Try again or go to <a href="/">Sign Up</a> page
+    </p>
+{% endif %}
+
+
+<form method="POST">
+    <label>E-mail</label>
+    <input type="email" maxlength="30" name="email" 
+    placeholder="example@test.com" required><br/>
+    <label>Password</label>
+    <input type="password"minlength="6" maxlength="20" name="password" 
+    placeholder="6 or more symbols" required><br/>
+    <input type="checkbox" name="remember">
+    <label id='remember'>Remember me</label>
+    <input type="submit" value="Log In">
+</form>

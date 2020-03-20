@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Bellota+Text|Inter:400,700&display=swap&subset=cyrillic');
+
+body
+{
+    font-family: 'Bellota Text', cursive;
+
+    display: flex;
+    flex-direction: column;
+
+    /*height: 100vh;
+    margin: 0;*/
+
+    background: rgb(212,208,200);
+    background-position: center;
+    background-size: cover;
+
+    justify-content: center;
+}
+
+h1, h2
+{
+    font-family: 'Inter', sans-serif;
+
+    text-align: center;
+}
+
+form
+{
+    width: 20%;
+    margin: 10px auto;
+    padding: 5px;
+
+    text-align: center;
+
+    border: 1px solid #000;
+    border-radius: 8px;
+    background-color: #80bcca;
+    box-shadow: 7px 7px 25px -5px black;
+}
+
+form *
+{
+    display: block;
+}
+
+input
+{
+    line-height: 28px;
+
+    width: 100%;
+    margin: 0 auto;
+
+    text-align: center;
+
+    border: 0;
+    border-radius: 8px;
+    outline: none;
+    background: #fff;
+}
+
+input[type='submit']
+{
+    font-size: 1.4rem;
+
+    width: 60%;
+    margin: 10px auto;
+
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+input[type='submit']:hover
+{
+    transition: filter .2s;
+    transition: transform .2s;
+    transform: scale(1.02);
+
+    filter: drop-shadow(1.5px 1.5px 2px black);
+}
+
+a
+{
+    font-size: .7rem;
+
+    text-align: center;
+    text-decoration: none;
+
+    color: #8b9db8;
+    text-shadow: 1px 1px 4px #777777;
+}
+
+label
+{
+    margin-bottom: 6px;
+}
+
+.error
+{
+    font-size: 20px;
+
+    display: block;
+
+    margin: 20px auto;
+    padding: 5px;
+
+    text-align: center;
+
+    color: #ff9997;
+    background-color: rgba(275, 275, 275, .6);
+}
+
+.error a
+{
+    font-size: 20px;
+
+    text-decoration: underline;
+}

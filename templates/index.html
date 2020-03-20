@@ -1,0 +1,43 @@
+<head>
+    <link href='../static/style.css', rel='stylesheet'>
+</head>
+<body>
+<h1>Ivanov PCS-21</h1>
+
+{% if error == 'passwords_dont_match' %}
+<p class="error">Passwords doesn't match</p>
+{% elif error == 'account_already_exists'%}
+<p class="error">Sorry, account with this email is already exists</p>
+{% endif %}
+
+<form method="POST">
+    <label>Name</label>
+    <input minlength="5" 
+    maxlength="20" 
+    name="name" 
+    placeholder="5 or more symbols" 
+    required><br/>
+    <label>E-mail</label>
+    <input type="email" 
+    maxlength="30" 
+    name="email" 
+    placeholder="example@test.com" 
+    required><br/>
+    <label>Password</label>
+    <input type="password"
+    minlength="6" 
+    maxlength="20" 
+    name="password" 
+    placeholder="6 or more symbols" 
+    required><br/>
+    <label>Password</label>
+    <input type="password" 
+    minlength="6" 
+    maxlength="20" 
+    name="password_check"
+    placeholder="Retype password" 
+    required><br/>
+    <input type="submit" value="Send">
+    <a href="/login">Already have an account?</a>
+</form>
+</body>
